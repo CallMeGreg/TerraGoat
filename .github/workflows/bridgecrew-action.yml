@@ -9,8 +9,14 @@ on:
   workflow_dispatch:
 
 jobs:
-   bridgecrew:
+  bridgecrew:
+    name: Run bridgecrew
     runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
     steps:
       - name: Clone repo
         uses: actions/checkout@v3

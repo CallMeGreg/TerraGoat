@@ -9,8 +9,14 @@ on:
   workflow_dispatch:
 
 jobs:
-   checkov:
+  checkov:
+    name: Run checkov
     runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
     steps:
       - name: Clone repo
         uses: actions/checkout@v3
