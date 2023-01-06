@@ -29,7 +29,6 @@ jobs:
         uses: bridgecrewio/checkov-action@v12.1347.0
         with:
           soft_fail: true
-          quiet: true
           check: CRITICAL
 
       - name: Upload SARIF results
