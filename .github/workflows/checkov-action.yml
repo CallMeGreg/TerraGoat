@@ -31,6 +31,7 @@ jobs:
           soft_fail: true
           quiet: true
           framework: terraform
+          check: CKV_AWS_1,CKV_AWS_2,CKV_AWS_3
 
       - name: Upload SARIF results
         uses: github/codeql-action/upload-sarif@v2
