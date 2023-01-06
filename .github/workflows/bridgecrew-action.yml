@@ -30,6 +30,7 @@ jobs:
         with:
           soft_fail: true
           quiet: true
+          check: MEDIUM
 
       - name: Upload SARIF results
         uses: github/codeql-action/upload-sarif@v2
