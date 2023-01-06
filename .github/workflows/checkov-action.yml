@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Bridgecrew
+name: Checkov
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -14,22 +14,16 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-   bridgecrew:
+   checkov:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repo
         uses: actions/checkout@v3
 
-      - name: Run Bridgecrew 
-        id: Bridgecrew
-        uses: bridgecrewio/bridgecrew-action@v1.177.2
+      - name: Run checkov
+        uses: bridgecrewio/checkov-action@v12.1347.0
         with:
           soft_fail: true
-        env:  
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_REF: ${{ github.ref }}
-          GITHUB_SHA: ${{ github.sha }}
-          GITHUB_SERVER_URL: $GITHUB_SERVER_URL  
 
       - name: Upload SARIF results
         uses: github/codeql-action/upload-sarif@v2
@@ -40,5 +34,5 @@ jobs:
       - name: Upload SARIF file as an artifact
         uses: actions/upload-artifact@v3
         with:
-          name: bridgecrew-sarif
+          name: checkov-sarif
           path: results.sarif
