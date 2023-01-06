@@ -29,7 +29,6 @@ jobs:
         uses: bridgecrewio/checkov-action@master
         with:
           soft_fail: true
-          check: CRITICAL
 
       - name: Upload SARIF results
         uses: github/codeql-action/upload-sarif@v2
