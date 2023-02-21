@@ -8,4 +8,4 @@ This repo includes intentionally vulnerable code from [TerraGoat](https://github
 
 - WebGoat is a deliberately insecure web application maintained by OWASP designed to teach web application security lessons.
 
-- CdkGoat is Bridgecrew's "Vulnerable by Design" AWS CDK repository. CdkGoat is a learning and training project that demonstrates how common configuration errors can find their way into production cloud environments.
+- CdkGoat is Bridgecrew's "Vulnerable by Design" AWS CDK repository. CdkGoat is a learning and training project that demonstrates how common configuration errors can find their way into production cloud environments. 
