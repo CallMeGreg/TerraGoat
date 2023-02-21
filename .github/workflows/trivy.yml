@@ -11,8 +11,8 @@ on:
   pull_request:
     branches: [ "master"] 
 jobs:
-  build:
-    name: Build
+  trivy:
+    name: Trivy scan
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
