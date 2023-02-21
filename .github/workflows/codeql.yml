@@ -42,7 +42,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
       
-    - if: ${{ matrix.language }} == 'java'
+    - if: ${{ matrix.language == 'java' }}
       name: Setup Java JDK
       uses: actions/setup-java@v3.10.0
       with:
@@ -65,11 +65,11 @@ jobs:
 
     # Autobuild attempts to build any compiled languages  (C/C++, C#, Go, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
-    - if: ${{ matrix.language }} != 'java'
+    - if: ${{ matrix.language != 'java' }}
       name: Autobuild non-java
       uses: github/codeql-action/autobuild@v2
       
-    - if: ${{ matrix.language }} == 'java'
+    - if: ${{ matrix.language == 'java' }}
       name: Autobuild java
       uses: github/codeql-action/autobuild@v2
 
