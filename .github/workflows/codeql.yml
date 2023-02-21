@@ -32,7 +32,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'python', 'javascript' ]
+        language: [ 'java', 'go', 'python', 'javascript' ]
         # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
         # Use only 'java' to analyze code written in Java, Kotlin or both
         # Use only 'javascript' to analyze code written in JavaScript, TypeScript or both
@@ -41,6 +41,14 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+      
+    - if: ${{ matrix.language }} == 'java'
+      name: Setup Java JDK
+      uses: actions/setup-java@v3.10.0
+      with:
+        # The Java version to set up. Takes a whole or semver Java version. See examples of supported syntax in README file
+        java-version: '17'
+        distribution: 'microsoft'
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
@@ -57,7 +65,12 @@ jobs:
 
     # Autobuild attempts to build any compiled languages  (C/C++, C#, Go, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
-    - name: Autobuild
+    - if: ${{ matrix.language }} != 'java'
+      name: Autobuild non-java
+      uses: github/codeql-action/autobuild@v2
+      
+    - if: ${{ matrix.language }} == 'java'
+      name: Autobuild java
       uses: github/codeql-action/autobuild@v2
 
     # ℹ️ Command-line programs to run using the OS shell.
