@@ -1,4 +1,4 @@
-# (Terra)(Web)(Cfn)(Cdk)Goat - Vulnerable Code & Infrastructure
+# (Terra)(Web)(Cfn)(Cdk)Goat - Vulnerable Code & Infrastructure  
 
 This repo includes intentionally vulnerable code from [TerraGoat](https://github.com/bridgecrewio/terragoat), [Cfngoat](https://github.com/bridgecrewio/cfngoat), [CdkGoat](https://github.com/bridgecrewio/cdkgoat), and [WebGoat](https://github.com/WebGoat/WebGoat).
 
