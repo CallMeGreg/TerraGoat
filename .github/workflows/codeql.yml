@@ -101,7 +101,7 @@ jobs:
     - name: Upload the SARIF file as an artifact
       uses: actions/upload-artifact@v4
       with:
-        name: sarif-results/${{ matrix.language }}-new
+        name: sarif-results-${{ matrix.language }}-new
         path: sarif-results/${{ matrix.language }}-new.sarif
 
     - name: Upload SARIF
